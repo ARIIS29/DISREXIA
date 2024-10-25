@@ -1,0 +1,254 @@
+
+body{
+    font-family: Courier;
+    /* background-image: url(../img/fondo31.jpg); */
+    background-color: #abf0d1;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+}
+
+@media only screen and (max-width: 767px) {
+    body {
+      /* background-image: url(../img/fondo31.jpg); */
+      background-color: #abf0d1;
+    }
+}
+
+
+/* INICIO DE HEADER */
+header{
+    background-image: url(../img/noche.jpg);
+    height: 110px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    /* align-content: center; */
+    /* padding: 10px; */
+}
+
+.contenedor-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.contenedor-logo .logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.contenedor-logo .logo img{
+    width: 150px;
+}
+
+.titu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.titu img{
+    width: 50%;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+}
+
+.boton-lecciones img{
+    transition: transform .2s;
+    width: 60%;
+    padding: 1%;
+}
+.boton-lecciones img:hover{
+    transform: scale(1.5);
+    /* background-color: #002060; */
+    border-radius: 40%;
+}
+
+.boton-ejercicios img{
+    transition: transform .2s;
+    width: 53%;
+}
+.boton-ejercicios img:hover{
+    transform: scale(1.5);
+    /* background-color: green; */
+    border-radius: 40%;
+}
+/* FIN DE HEADER */
+
+section{
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-end;
+    align-content: flex-end;
+}
+
+.contenedor1{
+    width: 950px;
+    height: 540px;
+    /* background-image: url(../img/fondo-monos2.jpg); */
+    background-color: #abf0d1;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+
+#mensajeFinal{
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-family: cursive;
+    font-size: 50px;
+    margin-top: 10%;
+    display: none;
+}
+
+.contenedor1 .botones{
+    /* margin-top: 8%; */
+    text-align: center;
+    display: none;
+}
+
+.boton-mono img{
+    transition: transform .2s;
+}
+
+.boton-mono img:hover{
+    transform: scale(1.5);
+    /* background-color: green; */
+    border-radius: 20%;
+}
+
+.boton-leon img{
+    transition: transform .2s;
+}
+
+.boton-leon img:hover{
+    transform: scale(1.5);
+    /* background-color: green; */
+    border-radius: 20%;
+}
+
+.contenedor{
+    width: 950px;
+    height: 540px;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedor p{
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-family: cursive;
+    font-size: 30px;
+}
+
+.contenedor .frutas{
+    /* background-color: aliceblue; */
+    display: flex;
+    flex-direction: row;
+    /* margin-left: 68%; */
+    margin-top: -15%;
+}
+
+.contenedor .frutas img{
+    display: block;
+}
+
+.contenedor .frutas #banana{
+    margin-left: 20%;
+    margin-top: 10%;
+    width: 10%;
+    cursor: pointer;
+}
+
+.contenedor .frutas #pina{
+    margin-left: -60%;
+    margin-top: 10%;
+    width: 12%;
+    cursor: pointer;
+}
+
+.contenedor .frutas #mani{
+    margin-left: 40%;
+    margin-top: 10%;
+    width: 10%;
+    cursor: pointer;
+}
+
+.contenedor .frutas #banana2{
+    margin-left: 40%;
+    margin-top: 10%;
+    width: 10%;
+    cursor: pointer;
+}
+
+.contenedor .mono{
+    /* background-color: aliceblue; */
+    margin-left: 38%;
+    margin-top: 10%;
+}
+
+.contenedor .mono img{
+    width: 30%;
+    cursor: pointer;
+    display: block;
+}
+
+.contenedor .botones{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    margin-top: -40%;
+}
+
+button {
+    background-image: url(../img/suelo.jpeg);
+    background-size: cover;
+    font-family: cursive;
+    border-radius: 15%;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.marcador{
+    width: 400px;
+    height: 540px;
+    /* background-image: url(../img/tronoco.png); */
+    background-color: #abf0d1;
+    /* background-size: cover; */
+    text-align: center;
+}
+
+.marcador img{
+    width: 85%;
+    margin-left: 10%;
+}
+
+.marcador p{
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-family: cursive;
+    font-size: 50px;
+    margin-top: -1%;
+}

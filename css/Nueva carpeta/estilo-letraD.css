@@ -1,0 +1,180 @@
+/* Estilos de barra de navegacion */
+body{
+    background-image: url(../img/fondo31.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #464646;
+    margin: 0;
+  }
+  
+  @media only screen and (max-width: 767px) {
+      body {
+        background-image: url(../img/fondo31.jpg);
+      }
+  }
+  header{
+      display: flex;
+      background-image: url(../img/restos1.jpg);
+      height: 94px;
+      justify-content: space-between;
+      align-items: center;
+      /* padding: 10px; */
+      
+  
+  }
+
+a{
+    text-decoration: none;
+    font-size: 150%;
+}
+
+.contenedor-logo{
+    display: flex;
+    flex-direction: row;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    font-size: 150%;
+    color: #002060;
+}
+.logo img{
+    width: 150px;
+    margin-left: 30px;
+}
+
+.contenedor-logo .titu{
+    display: flex;
+    flex-direction: column;
+    margin-left: 50%;
+    margin-top: 2%;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    margin-left: 35%;
+}
+.boton-lecciones img{
+    transition: transform .2s;
+    width: 60%;
+    padding: 1%;
+}
+.boton-lecciones img:hover{
+    transform: scale(1.5);
+    /* background-color: #002060; */
+    border-radius: 40%;
+}
+
+.boton-ejercicios img{
+    transition: transform .2s;
+    width: 53%;
+}
+.boton-ejercicios img:hover{
+    transform: scale(1.5);
+    /* background-color: green; */
+    border-radius: 40%;
+}
+
+nav a{
+    font-weight: 600;
+    padding-right: 10px;
+    color: #002060;
+}
+
+nav a:hover{
+    color: #49B19D;
+}
+
+.contenedor{
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedor .contenedor-leccion .madera{
+    display: flex;
+    margin-top: -.7cm;
+    margin-left: 9cm;
+    width: 56.5%;
+}
+
+.contenedor .contenedor-leccion .contenedor-letra{
+    display: flex;
+    flex-direction: column;
+    margin-top: -35%;
+}
+
+.contenedor .contenedor-leccion .contenedor-letra .letra-d{
+    width: 10%;
+    margin-left: 60%;
+    margin-top: 4.5%;
+    cursor: pointer;
+    position: relative;
+    /* z-index: 100%; */
+}
+
+
+.contenedor .contenedor-leccion .contenedor-letra .gif-d{
+    width: 23%;
+    margin-top: -.3cm;
+    margin-left: 40%;
+    cursor: pointer;
+}
+
+.contenedor .contenedor-leccion .contenedor-letra .dino{
+    width: 35%;
+    margin-left: 60%;
+    margin-top: -22%;
+    cursor: pointer;
+}
+.contenedor .contenedor-leccion .audio{
+    display: flex;
+    margin-left: 14.5cm;
+    margin-top: -2cm;
+}
+
+.contenedor .botones{
+    display: flex;
+    margin-top: -3cm;
+    margin-left: 27%;
+}
+.contenedor .botones .regresar{
+   margin-left: -6cm;
+}
+.contenedor .botones .siguiente{
+    margin-left: 17cm;
+}
+
+.contenedor .hoja-da{
+    width: 8%;
+    margin-left: 5%;
+    margin-top: -35%;
+    cursor: pointer;
+}
+.contenedor .hoja-de{
+    width: 9%;
+    margin-left: 12%;
+    margin-top: -.5%;
+    cursor: pointer;
+}
+.contenedor .hoja-di{
+    width: 8%;
+    margin-left: 15%;
+    margin-top: .5%;
+    cursor: pointer;
+}
+.contenedor .hoja-do{
+    width: 9%;
+    margin-left: 85%;
+    margin-top: -25%;
+    cursor: pointer;
+}
+.contenedor .hoja-du{
+    width: 8%;
+    margin-left: 85%;
+    margin-top: 11%;
+    cursor: pointer;
+}

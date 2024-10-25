@@ -1,0 +1,134 @@
+body{
+    background-image: url(../img/fondo31.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #ABF0D1;
+    margin: 0;
+}
+
+@media only screen and (max-width: 767px) {
+    body {
+      background-image: url(../img/fondo31.jpg);
+    }
+}
+
+header{
+    display: flex;
+    background-image: url(../img/restos1.jpg);
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+a{
+    text-decoration: none;
+    font-size: 150%;
+}
+
+.contenedor-logo{
+    display: flex;
+    flex-direction: row;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    font-size: 150%;
+    color: #002060;
+}
+.logo img{
+    width: 150px;
+    margin-left: 30px;
+}
+
+.contenedor-logo .titu{
+    display: flex;
+    flex-direction: column;
+    margin-left: 40%;
+    margin-top: 2%;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    margin-left: 35%;
+}
+.boton-lecciones img{
+    transition: transform .2s;
+    width: 60%;
+    padding: 1%;
+}
+.boton-lecciones img:hover{
+    transform: scale(1.5);
+    /* background-color: #002060; */
+    border-radius: 40%;
+}
+
+.boton-ejercicios img{
+    transition: transform .2s;
+    width: 53%;
+}
+.boton-ejercicios img:hover{
+    transform: scale(1.5);
+    /* background-color: green; */
+    border-radius: 40%;
+}
+
+nav a{
+    font-weight: 600;
+    padding-right: 10px;
+    color: #002060;
+}
+
+nav a:hover{
+    color: #49B19D;
+}
+
+.contenedor{
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedor .contenedor-leccion .madera{
+    display: flex;
+    margin-top: -.7cm;
+    margin-left: 9cm;
+    width: 56%;
+}
+
+.contenedor .contenedor-leccion .contenedorManos{
+    display: flex;
+    margin-top: -30%;
+    margin-left: 28%;
+}
+
+.contenedor .contenedor-leccion .contenedorManos img{
+    width: 35%;
+    margin-left: -.3cm;
+}
+
+.contenedor .contenedor-leccion .contenedorManos .izquierda{
+    cursor: pointer;
+    padding: 1%;
+}
+
+.contenedor .contenedor-leccion .contenedorManos .derecha{
+    cursor: pointer;
+    padding: 1%;
+}
+
+.contenedor .botones{
+    display: flex;
+    margin-top: -3cm;
+    margin-left: 27%;
+}
+.contenedor .botones .regresar{
+   margin-left: -6cm;
+}
+.contenedor .botones .siguiente{
+    margin-left: 17cm;
+}
+

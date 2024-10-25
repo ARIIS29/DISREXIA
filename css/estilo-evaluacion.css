@@ -1,0 +1,130 @@
+/* body{
+    font-family: Courier;
+    margin: 0;
+} */
+
+body{
+  background-image: url(../img/monta.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+
+  font-family: Courier;
+    margin: 0;
+}
+
+@media only screen and (max-width: 767px) {
+    body {
+      background-image: url(../img/monta.jpg);
+    }
+}
+
+header{
+    background-image: url(../img/noche.jpg);
+    height: 110px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    /* align-content: center; */
+    /* padding: 10px; */
+}
+
+.contenedor-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.contenedor-logo .logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.contenedor-logo .logo img{
+    width: 150px;
+}
+
+.titu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.titu img{
+    width: 50%;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+}
+
+.boton-lecciones img{
+    transition: transform .2s;
+    width: 60%;
+    padding: 1%;
+}
+.boton-lecciones img:hover{
+    transform: scale(1.5);
+    /* background-color: #002060; */
+    border-radius: 40%;
+}
+
+.boton-ejercicios img{
+    transition: transform .2s;
+    width: 53%;
+}
+.boton-ejercicios img:hover{
+    transform: scale(1.5);
+    /* background-color: green; */
+    border-radius: 40%;
+}
+
+section{
+    display: flex;
+    flex-direction: row;
+}
+
+.contenedor{
+    margin-top: 10%;
+    margin-right: 10%;
+    display: flex;
+    flex-direction: row;
+    text-overflow: clip;
+}
+
+.contenedor .monos img{
+    transition: transform .2s;
+    width: 55%;
+    margin-left: 30%;
+}
+.contenedor .monos img:hover{
+    transform: scale(1.5);
+    /* background-color: green; */
+    border-radius: 40%;
+}
+
+.contenedor .pinguinos img{
+    transition: transform .2s;
+    width: 80%;
+}
+.contenedor .pinguinos img:hover{
+    transform: scale(1.5);
+    /* background-color: green; */
+    border-radius: 40%;
+}
+
+.contenedor .leones img{
+    transition: transform .2s;
+    width: 80%;
+}
+.contenedor .leones img:hover{
+    transform: scale(1.5);
+    /* background-color: green; */
+    border-radius: 40%;
+}

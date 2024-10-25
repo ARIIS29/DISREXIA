@@ -1,0 +1,101 @@
+/* body{
+    height: 637px;
+    background-image: url(../img/fondo31.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: Courier;
+    display: flex;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-content: center;
+} */
+
+body{
+    /* Aquí el origen de la imagen */
+  background-image: url(../img/fondo-31.jpg);
+
+  /* Fijar la imagen de fondo este vertical y
+    horizontalmente y centrado */
+  background-position: center center;
+
+  /* Esta imagen no debe de repetirse */
+  background-repeat: no-repeat;
+
+  /* COn esta regla fijamos la imagen en la pantalla. */
+  background-attachment: fixed;
+
+  /* La imagen ocupa el 100% y se reescala */
+  background-size: cover;
+
+  /* Damos un color de fondo mientras la imagen está cargando  */
+  background-color: #464646;
+}
+
+@media only screen and (max-width: 767px) {
+    body {
+      background-image: url(../img/fondo-31.jpg);
+    }
+}
+
+.presentacion{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.presentacion .instrucciones{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+.presentacion .instrucciones img{
+    width: 40%;
+}
+
+
+.presentacion .botones{
+    display: flex;
+    justify-content: center;
+    margin-top: -2%;
+}
+
+
+.presentacion .botones .lecciones{
+    transition: transform 0.32s ease-in-out;
+    margin-top: 2%;
+    margin-left: 55%;
+}
+
+.presentacion .botones .lecciones:hover{
+    transform: translateY(-20px);
+}
+
+.presentacion .botones .ejercicios{
+    transition: transform 0.32s ease-in-out;
+    margin-left: 25%;
+}
+
+.presentacion .botones .ejercicios:hover{
+    transform: translateY(-20px);
+}
+
+@media (max-width: 608px){
+  body{
+      align-items: center;
+      align-content: center;
+      justify-content: center;
+  }
+
+  .presentacion{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+}
