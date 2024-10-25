@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Completa con la letra P</title>
+    <link rel="shortcut icon" href="../../img/icono-rex.png" type="image/x-icon"/>
+    <style>
+      #myButton {
+        width: 100px;
+        height: 100px;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 1;
+      }
+      button {
+        background-color: #008cba;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      #repetir {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 10px;
+      }
+      body {
+        /* background-image: url("../imagenes/fondo3.jpg"); */
+        background-color: #abf0d1;
+        background-size: cover;
+      }
+
+      img {
+        width: 15%;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+
+      h1 {
+        margin-top: 50px;
+        color: rgb(13, 4, 93);
+      }
+
+      #word {
+        font-size: 3em;
+        margin-top: 30px;
+        color: rgb(13, 4, 93);
+      }
+
+      #answer {
+        margin-top: 20px;
+        padding: 10px;
+      }
+
+      #submit {
+        margin-top: 10px;
+        padding: 10px 20px;
+      }
+
+      #result {
+        margin-top: 20px;
+        font-size: 1.2em;
+        color: white;
+      }
+
+      #new-word {
+        margin-top: 20px;
+        padding: 10px 20px;
+      }
+
+      #repetir {
+        width: 4%;
+        margin-left: 24%;
+        margin-top: 7%;
+        cursor: pointer;
+      }
+
+      .instruccion {
+        width: 55%;
+        margin-top: -1%;
+      }
+    </style>
+  </head>
+  <body>
+    <audio id="sonido-inicio" src="../sonidos/escribep.mp3"></audio>
+    <img class="instruccion" src="../imagenes/insCompletaP.png" />
+    <br />
+    <img id="image" src="" />
+    <audio id="audio"></audio>
+    <div id="word"></div>
+    <audio autoplay>
+      <source src="../sonidos/escribep.mp3" type="audio/mpeg" />
+    </audio>
+    <img
+      src="../imagenes/audio.png"
+      id="repetir"
+      onclick="reproducirSonidoInicio()"
+    />
+
+    <input type="text" id="answer" placeholder="Escribe la palabra" />
+    <button id="submit" onclick="checkAnswer()">Comprobar</button>
+    <div id="result"></div>
+    <button id="new-word" onclick="newWord()">siguiente palabra</button>
+    <br />
+    <a href="../menuEjercicios.html"
+      ><img src="../imagenes/menu.png" id="myButton"
+    /></a>
+
+    <script>
+      function reproducirSonidoInicio() {
+        const sonidoInicio = document.getElementById("sonido-inicio");
+        sonidoInicio.currentTime = 0;
+        sonidoInicio.play();
+      }
+
+      window.onload = function () {
+        const sonidoInicio = document.getElementById("sonido-inicio");
+        sonidoInicio.currentTime = 0;
+        sonidoInicio.play();
+      };
+      // Array de palabras con su imagen y sonido correspondientes
+      const words = [
+        {
+          word: "periodico",
+          image: "../imagenes/periodico.png",
+          audio: "../sonidos/periodico.mp3",
+        },
+        {
+          word: "papaya",
+          image: "../imagenes/papaya.png",
+          audio: "../sonidos/papaya.mp3",
+        },
+        {
+          word: "pelota",
+          image: "../imagenes/pelota.png",
+          audio: "../sonidos/pelota.mp3",
+        },
+        {
+          word: "pimiento",
+          image: "../imagenes/pimiento.png",
+          audio: "../sonidos/pimiento.mp3",
+        },
+        {
+          word: "peluca",
+          image: "../imagenes/peluca.png",
+          audio: "../sonidos/peluca.mp3",
+        },
+        {
+          word: "perro",
+          image: "../imagenes/perro.png",
+          audio: "../sonidos/perro.mp3",
+        },
+      ];
+      // Seleccionar una palabra al azar
+      let currentWord = words[Math.floor(Math.random() * words.length)];
+
+      // Mostrar la palabra con letras faltantes
+      let hiddenWord = currentWord.word.replace(/[p]/g, "_");
+      document.getElementById("word").textContent = hiddenWord;
+
+      // Actualizar imagen y sonido
+      document.getElementById("image").src = currentWord.image;
+      document.getElementById("audio").src = currentWord.audio;
+
+      // Contador de respuestas correctas
+      let correctAnswers = 0;
+
+      // Función para comprobar la respuesta del usuario
+      function checkAnswer() {
+        let answer = document.getElementById("answer").value.toLowerCase();
+        if (answer === currentWord.word) {
+          document.getElementById("result").textContent = "¡Correcto!";
+          correctAnswers++;
+          // alert("¡Correcto!");
+          if (correctAnswers === 3) {
+            // Avanzar a la siguiente página
+            alert("¡CORRECTO! HAS COMPLETADO EL NIVEL 3 DE LA LETRA P" );
+            window.location.href = "../menuEjercicios.html";
+          } else {
+            // Avanzar a la siguiente palabra
+            currentWord = words[Math.floor(Math.random() * words.length)];
+            hiddenWord = currentWord.word.replace(/[p]/g, "_");
+            document.getElementById("word").textContent = hiddenWord;
+            document.getElementById("answer").value = "";
+            document.getElementById("result").textContent = "";
+
+            // Actualizar imagen y sonido
+            document.getElementById("image").src = currentWord.image;
+            document.getElementById("audio").src = currentWord.audio;
+          }
+        } else {
+          // alert("Incorrecto, intenta de nuevo");
+        }
+      }
+      // Función para seleccionar una nueva palabra al azar
+      function newWord() {
+        currentWord = words[Math.floor(Math.random() * words.length)];
+        hiddenWord = currentWord.word.replace(/[p]/g, "_");
+        document.getElementById("word").textContent = hiddenWord;
+        document.getElementById("answer").value = "";
+        document.getElementById("result").textContent = "";
+
+        // Actualizar imagen y sonido
+        document.getElementById("image").src = currentWord.image;
+        document.getElementById("audio").src = currentWord.audio;
+      }
+
+      // Función para reproducir el audio
+      function playAudio() {
+        document.getElementById("audio").play();
+      }
+
+      // Agregar evento click a la imagen
+      document.getElementById("image").addEventListener("click", playAudio);
+    </script>
+  </body>
+</html>

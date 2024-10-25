@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../img/icono-rex.png" type="image/x-icon" />
+    <title>Zoológico de la Letra p</title>
+    <style>
+        .btn-img {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        body {
+            /* background-image: url(../imagenes/fondo1.jpg); */
+        	background-color: #abf0d1;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        @media only screen and (max-width: 767px) {
+            body {
+                /* background-image: url(../imagenes/fondo1.jpg); */
+        	    background-color: #abf0d1;
+            }
+        }
+
+        .contenedor {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contenedor .contenedor-zoo {
+            position: absolute;
+            margin-left: 2cm;
+            margin-top: 14.2cm;
+        }
+
+        .contenedor .contenedor-ins {
+            position: absolute;
+            margin-left: 5cm;
+            margin-top: -.5cm;
+        }
+        .contenedor .contenedor-audio {
+            position: absolute;
+            margin-left: 5.7cm;
+            margin-top: 2.7cm;
+            cursor: pointer;
+        }
+
+
+        #description {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        #letter-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            padding: 20px;
+        }
+
+        .letter {
+            width: 150px;
+            height: 80px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            cursor: pointer;
+            margin: 10px;
+            position: absolute;
+        }
+
+        .letter-pantera {
+            height: 25%;
+            background-image: url("../imagenes/pantera.png");
+            top: 60%;
+            left: 8%;
+        }
+
+        .letter-perezoso {
+            height: 20%;
+            background-image: url("../imagenes/perezoso.png");
+            top: 20%;
+            left: 87%;
+        }
+
+        .letter-pato {
+            height: 25%;
+            background-image: url("../imagenes/pato.png");
+            top: 50%;
+            left: 50%;
+        }
+        .letter-peces {
+            height: 20%;
+            background-image: url("../imagenes/peces.png");
+            top: 60%;
+            left: 80%;
+        }
+
+       .letter-quokkap {
+            height: 25%;
+            background-image: url("../imagenes/quokka.png");
+            top: 40%;
+            left: 25%;
+        } 
+
+         .letter-queleap {
+            height: 20%;
+            background-image: url("../imagenes/quelea.png");
+            top: 15%;
+            left: 1%;
+        }
+
+        .letter-equidnap {
+            height: 25%;
+            background-image: url("../imagenes/equidna.png");
+            top: 68%;
+            left: 63%;
+            
+        } 
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <div class="contenedor-zoo">
+            <img src="../imagenes/zoop.png" alt="zoo-p" width="40%">
+        </div>
+        <div class="contenedor-ins">
+            <img src="../imagenes/insP.png" alt="zoo-p" width="80%">
+        </div>
+        <div class="contenedor-audio">
+            <img src="../imagenes/audio.png" alt="audio" width="40%" onclick="playSound('indicaciones')">
+        </div>
+    </div>
+   
+    <div id="letter-container">
+        <a href="../menuEjercicios.html" class="btn-img"><img src="../imagenes/menu.png" width="80"></a>
+        <div class="letter letter-pantera" onclick="playSound('pantera')"></div>
+        <div class="letter letter-perezoso" onclick="playSound('perezoso')"></div>
+        <div class="letter letter-pato" onclick="playSound('pato')"></div>
+        <div class="letter letter-peces" onclick="playSound('peces')"></div>
+
+        <div class="letter letter-quokkap" onclick="playSound('quokkap')"></div>
+        <div class="letter letter-queleap" onclick="playSound('queleap')"></div>
+        <div class="letter letter-equidnap" onclick="playSound('equidnap')"></div>
+    </div>
+    <div id="b-count"><span id="count"></span></div> 
+
+
+    <audio id="indicaciones-audio">
+        <source src="../sonidos/encuentrap.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="pantera-audio">
+        <source src="../sonidos/pantera.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="perezoso-audio">
+        <source src="../sonidos/perezoso.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="pato-audio">
+        <source src="../sonidos/pato.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="peces-audio">
+        <source src="../sonidos/peces.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="quokkap-audio">
+        <source src="../sonidos/quokkap.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="queleap-audio">
+        <source src="../sonidos/queleap.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="equidnap-audio">
+        <source src="../sonidos/equidnap.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        let bCount = 0;
+        const countSpan = document.getElementById("count");
+
+        function playSound(letter) {
+            const audioElement = document.getElementById(`${letter}-audio`);
+            audioElement.play();
+            
+
+            if (letter === 'pantera' || letter === 'perezoso' || letter === 'pato' || letter === 'peces') {
+                bCount++;
+                countSpan.innerHTML = bCount;
+                if (bCount >=4) {
+                    audioElement.play();
+                    alert("¡CORRECTO! HAS COMPLETADO EL NIVEL 1 DE LA LETRA P" );
+                    //   alert("Felicidades, has identificado la letra 'b'.");
+                    window.location.href = "./buscap.html";
+                }
+            } else {
+                // alert("¡Incorrecto! Sigue intentando.");
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

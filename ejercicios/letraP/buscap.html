@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Busca la Letra P</title>
+	<link rel="shortcut icon" href="../../img/icono-rex.png" type="image/x-icon" />
+	<style>
+		.btn-img {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		body {
+			/* background-image: url(../imagenes/fondo3.jpg); */
+        	background-color: #abf0d1;
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
+		}
+
+		@media only screen and (max-width: 767px) {
+			body {
+				/* background-image: url(../imagenes/fondo3.jpg); */
+        		background-color: #abf0d1;
+			}
+		}
+
+		.contenedor {
+			width: 100%;
+			height: 100%;
+            display: flex;
+            flex-direction: column;
+			align-items: center;
+			justify-content: center;
+        }
+
+        .contenedor .contenedor-ins {
+            position: absolute;
+            margin-left: 20%;
+            margin-top: -30%;
+        }
+
+		#audio-btn {
+			position: absolute;
+			top: 10%;
+			left: 20%;
+			padding: 10px;
+			border-radius: 5px;
+			cursor: pointer;
+		} 
+
+		#objeto {
+			width: 300px;
+			height: 300px;
+			background-position: center;
+			background-size: cover;
+			margin-top: 15%;
+			cursor: pointer;
+		}
+
+		.opcion {
+			display: inline-block;
+			background-color: #008CBA;
+			padding: 10px;
+			border-radius: 5px;
+			margin: 10px;
+			cursor: pointer;
+			font-size: 40px;
+		}
+
+		.opcion:hover {
+			background-color: gray;
+		}
+	</style>
+</head>
+
+<body onload="reproducirAudio()">
+	<div  class="contenedor">
+		<a href="../menuEjercicios.html" class="btn-img"><img src="../imagenes/menu.png" width="80"></a>
+		<div class="contenedor-ins">
+			<img src="../imagenes/insBuscaP.png" alt="zoo-p" width="70%">
+		</div>
+		<div id="audio-btn" onclick="reproducirAudio()"><img src="../imagenes/audio.png" alt="audio" width="40%"
+				onclick="playSound('indicaciones')"></div>
+		<div id="objeto"></div>
+		<div id="opciones">
+			<div class="opcion" onclick="verificarRespuesta(this)"></div>
+			<div class="opcion" onclick="verificarRespuesta(this)"></div>
+			<div class="opcion" onclick="verificarRespuesta(this)"></div>
+			<div class="opcion" onclick="verificarRespuesta(this)"></div>
+		</div>
+	</div>
+	<script>
+		var objetos = [
+			{
+				nombre: "periodico",
+				imagen: "../imagenes/periodico.png",
+				audio: "../sonidos/periodico.mp3",
+				respuesta: "periodico",
+				incorrectas: ["beropdico", "qeriodico", "deriodico"]
+			},
+			{
+				nombre: "papaya",
+				imagen: "../imagenes/papaya.png",
+				audio: "../sonidos/papaya.mp3",
+				respuesta: "papaya",
+				incorrectas: ["qabaya", "bepaya", "papalo"]
+			},
+			{
+				nombre: "pelota",
+				imagen: "../imagenes/pelota.png",
+				audio: "../sonidos/pelota.mp3",
+				respuesta: "pelota",
+				incorrectas: ["belota", "qelota", "pabota"]
+			},
+			{
+				nombre: "pimiento",
+				imagen: "../imagenes/pimiento.png",
+				audio: "../sonidos/pimiento.mp3",
+				respuesta: "pimiento",
+				incorrectas: ["bimiento", "piemonto", "qiamonto"]
+			},
+			{
+				nombre: "peluca",
+				imagen: "../imagenes/peluca.png",
+				audio: "../sonidos/peluca.mp3",
+				respuesta: "peluca",
+				incorrectas: ["beluca", "qeluca", "daluca"]
+			},
+			{
+				nombre: "perro",
+				imagen: "../imagenes/perro.png",
+				audio: "../sonidos/perro.mp3",
+				respuesta: "perro",
+				incorrectas: ["berro", "derro", "querro"]
+			},
+		];
+
+		var indiceObjetoActual = 0;
+		var respuestasCorrectas = 0;
+
+		function reproducirAudio() {
+			var audio = new Audio("../sonidos/buscap.mp3");
+			audio.play();
+		}
+
+		function seleccionarObjetoAleatorio() {
+			var indice = Math.floor(Math.random() * objetos.length);
+			var objeto = objetos[indice];
+			indiceObjetoActual = indice;
+			return objeto;
+		}
+
+		function mostrarObjeto(objeto) {
+			var objetoEl = document.getElementById("objeto");
+			objetoEl.style.backgroundImage = "url(" + objeto.imagen + ")";
+
+			var audio = new Audio(objeto.audio);
+
+			objetoEl.onclick = function () {
+				audio.play();
+			};
+		}
+
+
+
+
+		function mostrarOpciones(objeto) {
+			var opcionesEl = document.getElementById("opciones");
+			var respuestasIncorrectas = objeto.incorrectas.filter(function (respuesta) {
+				return respuesta !== objeto.respuesta;
+			});
+			respuestasIncorrectas = shuffle(respuestasIncorrectas);
+			respuestasIncorrectas.length = 3;
+			var opciones = [objeto.respuesta].concat(respuestasIncorrectas);
+			opciones = shuffle(opciones);
+			var opcionEls = document.getElementsByClassName("opcion");
+			for (var i = 0; i < opcionEls.length; i++) {
+				opcionEls[i].innerHTML = opciones[i];
+			}
+		}
+
+		function verificarRespuesta(opcionEl) {
+			var respuesta = opcionEl.innerHTML;
+			var objeto = objetos[indiceObjetoActual];
+			if (respuesta === objeto.respuesta) {
+				respuestasCorrectas++;
+				// alert("¡Correcto!");
+				if (respuestasCorrectas === 3) {
+					alert("¡CORRECTO! HAS COMPLETADO EL NIVEL 2 DE LA LETRA P");
+					window.location.href = "./completap.html";
+					respuestasCorrectas = 0;
+				}
+			} else {
+				// alert("Incorrecto, intenta de nuevo");
+			}
+			var objetoNuevo = seleccionarObjetoAleatorio();
+			mostrarObjeto(objetoNuevo);
+			mostrarOpciones(objetoNuevo);
+		}
+
+		function shuffle(array) {
+			for (var i = array.length - 1; i > 0; i--) {
+				var j = Math.floor(Math.random() * (i + 1));
+				var temp = array[i];
+				array[i] = array[j];
+				array[j] = temp;
+			}
+			return array;
+		}
+
+		var objetoInicial = seleccionarObjetoAleatorio();
+		mostrarObjeto(objetoInicial);
+		mostrarOpciones(objetoInicial);
+	</script>
+</body>
+
+</html>
