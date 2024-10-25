@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Izquierda</title>
+  <link rel="stylesheet" href="../css/estilo-izquierda.css" />
+  <link rel="shortcut icon" href="../img/icono-rex.png" type="image/x-icon" />
+  <!-- <link rel="stylesheet" href="../css/bootstrap.min.css" /> -->
+</head>
+<body">
+  <script src="../js/lecciones/izquierda.js"></script>
+  <header>
+    <div class="contenedor-logo">
+      <a class="logo" href="../index.html">
+        <img src="../img/disrexia.png" alt="" />
+      </a>
+      <div class="titu">
+        <img src="../img/mizquierda.png" alt="" width="200%">
+      </div>
+    </div>
+    <nav>
+      <div class="boton-lecciones">
+        <a href="../lecciones/menuLecciones.html">
+          <img class="lecciones" src="../img/btn-lecciones.png" alt="" />
+        </a>
+      </div>
+      <div class="boton-ejercicios">
+        <a href="../ejercicios/menuEjercicios.html">
+          <img class="ejercicios" src="../img/btn-ejercicio.png" alt="" />
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="contenedor">
+    <div class="contenedor-leccion">
+      <a><img src="../img/left1.png" alt="Izquierda" class="madera" width="45%"></a>
+      <a><img id="perro2" src="../img/perro2.gif" alt="Izquierda" class="perro2" width="15%"></a>
+    </div>
+    <div class="audio">
+      <audio controls autoplay>
+        <source src="../audios/perro2.mp3">
+      </audio>
+    </div>
+    <div class="regresar">
+      <a href="../lecciones/lateralidad.html"><img src="../img/btn-regresar.png" alt="" width="100%"></a>
+    </div>
+    <div class="siguiente">
+      <a href="derecha.html"><img src="../img/btn-siguiente.png" alt="" width="100%"></a>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<script>
+  perro2.onclick = () => perro2.classList.add('move');
+</script>
