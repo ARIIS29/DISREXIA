@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Lateralidad</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      .btn-img {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+      #repetir {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 10px;
+        margin-left: 25%;
+      }
+      body {
+        /* background-image: url("../../img/bosque.jpg"); */
+        background-color: #abf0d1;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: grid;
+        place-items: center;
+      }
+
+      .instrucciones{
+        margin-left: 45%;
+      }
+
+      .contenedor {
+        max-width: 80%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+      }
+
+      .manos{
+        text-align: center;
+        background-size: cover;
+        display: grid;
+        place-items: center;
+      }
+
+      .marcador{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-top: 5%;
+        border-radius: 10%;
+      }
+
+      .correcto{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+      }
+
+      .mal{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+      }
+
+      p {
+        font-size: 2rem;
+        font-weight: bold;
+        color: rgb(13, 4, 93);
+      }
+
+      button {
+        background-color: #008cba;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 40px;
+        margin: 10px;
+        cursor: pointer;
+      }
+
+      img {
+        display: block;
+        margin: auto;
+      }
+
+      #bien{
+        visibility: hidden;
+      }
+      #bien2{
+        visibility: hidden;
+      }
+      #bien3{
+        visibility: hidden;
+      }
+      #mal1{
+        visibility: hidden;
+      }
+      #mal2{
+        visibility: hidden;
+      }
+      #mal3{
+        visibility: hidden;
+      }
+
+      #respuesta {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-top: 20px;
+      }
+
+      @media (max-width: 600px) {
+        p {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <audio id="sonido-inicio" src="../sonidos/izquierdaderecha.mp3"></audio>
+
+    <div class="contenedor">
+      <div class="manos">
+        <audio autoplay>
+          <source src="../sonidos/izquierdaderecha.mp3" type="audio/mpeg" />
+        </audio>
+
+        <img class="instrucciones" src="../imagenes/insID.png" width="70%" alt="">
+        <img class="repetir" id="repetir" onclick="reproducirSonidoInicio()" src="../imagenes/audio.png" width="10%" alt="">
+        <a href="../menuEjercicios.html" class="btn-img"
+          ><img src="../imagenes/menu.png" width="100" height="100"
+        /></a>
+
+        <img
+          width="40%"
+          id="imagen-mano-izquierda"
+          src="../imagenes/I1.png"
+          alt="Imagen de mano izquierda"
+          onclick="reproducirSonidoIzquierda()"
+        />
+        <audio id="sonido-izquierda" src="../sonidos/izquierda.mp3"></audio>
+        <img
+          width="40%"
+          id="imagen-mano-derecha"
+          src="../imagenes/D1.png"
+          alt="Imagen de mano derecha"
+          onclick="reproducirSonidoDerecha()"
+        />
+        <audio id="sonido-derecha" src="../sonidos/derecha.mp3"></audio>
+        <br />
+        <button id="izquierda">Izquierda</button>
+        <button id="derecha">Derecha</button>
+        <p id="respuesta"></p>
+      </div>
+
+      <div class="marcador">
+        <img src="../imagenes/correcto.png" width="70%" alt="">
+        <div class="correcto" id="correcto">
+          <img class="bien" id="bien" src="../../img/feliz-dino.gif" width="50%" alt="">
+          <img class="bien" id="bien2" src="../../img/feliz-dino.gif" width="50%" alt="">
+          <img class="bien" id="bien3" src="../../img/feliz-dino.gif" width="50%" alt="">
+        </div>
+        <img src="../imagenes/incorrecto.png" width="70%" alt="">
+        <div class="mal" id="mal">
+          <img class="bien" id="mal1" src="../../img/mal.gif" width="50%" alt="">
+          <img class="bien" id="mal2" src="../../img/mal.gif" width="50%" alt="">
+          <img class="bien" id="mal3" src="../../img/mal.gif" width="50%" alt="">
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function reproducirSonidoInicio() {
+        const sonidoInicio = document.getElementById("sonido-inicio");
+        sonidoInicio.currentTime = 0;
+        sonidoInicio.play();
+      }
+
+      window.onload = function () {
+        const sonidoInicio = document.getElementById("sonido-inicio");
+        sonidoInicio.currentTime = 0;
+        sonidoInicio.play();
+      };
+
+      function reproducirSonidoIzquierda() {
+        const sonidoIzquierda = document.getElementById("sonido-izquierda");
+        sonidoIzquierda.currentTime = 0;
+        sonidoIzquierda.play();
+      }
+
+      function reproducirSonidoDerecha() {
+        const sonidoDerecha = document.getElementById("sonido-derecha");
+        sonidoDerecha.currentTime = 0;
+        sonidoDerecha.play();
+      }
+
+      let contadorRespuestasCorrectas = 0;
+      let contadorRespuestasIncorrectas = 0;
+      let bien = document.getElementById('bien');
+      let bien2 = document.getElementById('bien2');
+      let bien3 = document.getElementById('bien3');
+      let mal = document.getElementById('mal');
+
+      const btnIzquierda = document.getElementById("izquierda");
+      const btnDerecha = document.getElementById("derecha");
+      const respuesta = document.getElementById("respuesta");
+      const imagenManoIzquierda = document.getElementById("imagen-mano-izquierda");
+      const imagenManoDerecha = document.getElementById("imagen-mano-derecha");
+
+      const imagenesMano = [
+        "../imagenes/I1.png",
+        "../imagenes/D1.png",
+      ];
+
+      function mostrarManoAleatoria() {
+        const indice = Math.floor(Math.random() * imagenesMano.length);
+        const mano = imagenesMano[indice];
+        if (mano === "../imagenes/I1.png") {
+          imagenManoIzquierda.style.display = "block";
+          imagenManoDerecha.style.display = "none";
+        } else {
+          imagenManoIzquierda.style.display = "none";
+          imagenManoDerecha.style.display = "block";
+        }
+        return indice; // devuelve el índice de la imagen mostrada
+      }
+
+      const respuestaCorrecta = {
+        0: "izquierda", // imagen de mano izquierda
+        1: "derecha", // imagen de mano derecha
+      };
+
+      function verificarRespuesta(respuestaUsuario, indiceImagen) {
+        const respuestaEsperada = respuestaCorrecta[indiceImagen];
+        if (respuestaUsuario === respuestaEsperada) {
+          contadorRespuestasCorrectas++; // incrementar el contador de respuestas correctas
+          // alert("¡Correcto!");
+         
+          if (contadorRespuestasCorrectas === 1) {
+            bien.style.visibility='visible';
+          }
+          if (contadorRespuestasCorrectas === 2) {
+            bien2.style.visibility='visible';
+          }
+          if (contadorRespuestasCorrectas === 3) {
+            bien3.style.visibility='visible';
+            contadorRespuestasCorrectas = 0;
+            alert("¡CORRECTO! HAS COMPLETADO EL EJERCICIO LATERALIDAD" );
+            window.location.href = "../menuEjercicios.html"; // redireccionar a otro archivo
+          }
+        } else {
+          contadorRespuestasIncorrectas++;
+          if (contadorRespuestasIncorrectas === 1) {
+            mal1.style.visibility='visible'
+          }
+          if (contadorRespuestasIncorrectas === 2) {
+            mal2.style.visibility='visible'
+          }
+          if (contadorRespuestasIncorrectas === 3) {
+            mal3.style.visibility='visible'
+            contadorRespuestasIncorrectas = 0;
+          }
+          // alert("Incorrecto, intenta de nuevo");
+        }
+      }
+
+      let indiceImagenActual = mostrarManoAleatoria();
+
+      btnIzquierda.addEventListener("click", function () {
+        verificarRespuesta("izquierda", indiceImagenActual);
+        indiceImagenActual = mostrarManoAleatoria(); // mostramos una nueva imagen aleatoria
+      });
+
+      btnDerecha.addEventListener("click", function () {
+        verificarRespuesta("derecha", indiceImagenActual);
+        indiceImagenActual = mostrarManoAleatoria(); // mostramos una nueva imagen aleatoria
+      });
+    </script>
+  </body>
+</html>
