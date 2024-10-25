@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../img/icono-rex.png" type="image/x-icon" />
+    <title>Zoológico de la Letra q</title>
+    <style>
+        .btn-img {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        body {
+            /* background-image: url(../imagenes/fondo1.jpg); */
+            background-color: #abf0d1;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        @media only screen and (max-width: 767px) {
+            body {
+                /* background-image: url(../imagenes/fondo1.jpg); */
+                background-color: #abf0d1;
+            }
+        }
+
+        .contenedor {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contenedor .contenedor-zoo {
+            position: absolute;
+            margin-left: 2cm;
+            margin-top: 14.2cm;
+        }
+
+        .contenedor .contenedor-ins {
+            position: absolute;
+            margin-left: 5cm;
+            margin-top: -.5cm;
+        }
+        .contenedor .contenedor-audio {
+            position: absolute;
+            margin-left: 5.7cm;
+            margin-top: 2.7cm;
+            cursor: pointer;
+        }
+
+
+        #description {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        #letter-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            padding: 20px;
+        }
+
+        .letter {
+            width: 150px;
+            height: 80px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            cursor: pointer;
+            margin: 10px;
+            position: absolute;
+        }
+        .letter-quetzal {
+            height: 25%;
+            background-image: url("../imagenes/quetzal.png");
+            top: 15%;
+            left: 1%;
+        }
+        .letter-quokka {
+            height: 25%;
+            background-image: url("../imagenes/quokka.png");
+            top: 70%;
+            left: 65%;
+        } 
+
+         .letter-quelea {
+            height: 20%;
+            background-image: url("../imagenes/quelea.png");
+            top: 20%;
+            left: 80%;
+        }
+
+        .letter-equidna {
+            height: 25%;
+            background-image: url("../imagenes/equidna.png");
+            top: 40%;
+            left: 25%;
+            
+        } 
+        .letter-panda {
+            height: 30%;
+            background-image: url("../imagenes/panda.png");
+            top: 55%;
+            left: 8%;
+        }
+        .letter-pecesq {
+            height: 22%;
+            background-image: url("../imagenes/peces.png");
+            top: 60%;
+            left: 80%;
+        }
+
+        .letter-pavo {
+            height: 40%;
+            background-image: url("../imagenes/pavo.png");
+            top: 45%;
+            left: 45%;
+        }        
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <div class="contenedor-zoo">
+            <img src="../imagenes/zooq.png" alt="zoo-q" width="40%">
+        </div>
+        <div class="contenedor-ins">
+            <img src="../imagenes/insQ.png" alt="zoo-q" width="80%">
+        </div>
+        <div class="contenedor-audio">
+            <img src="../imagenes/audio.png" alt="audio" width="40%" onclick="playSound('indicaciones')">
+        </div>
+    </div>
+   
+    <div id="letter-container">
+        <a href="../menuEjercicios.html" class="btn-img"><img src="../imagenes/menu.png" width="80"></a>
+        <div class="letter letter-quetzal" onclick="playSound('quetzal')"></div>
+        <div class="letter letter-quokka" onclick="playSound('quokka')"></div>
+        <div class="letter letter-quelea" onclick="playSound('quelea')"></div>
+        <div class="letter letter-equidna" onclick="playSound('equidna')"></div>
+
+        <div class="letter letter-panda" onclick="playSound('panda')"></div>
+        <div class="letter letter-pecesq" onclick="playSound('pecesq')"></div>
+        <div class="letter letter-pavo" onclick="playSound('pavo')"></div>
+        
+
+       
+    </div>
+    <div id="b-count"><span id="count"></span></div> 
+
+    <audio id="indicaciones-audio">
+        <source src="../sonidos/encuentraq.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="quetzal-audio">
+        <source src="../sonidos/quetzal.m4a" type="audio/mpeg">
+    </audio>
+    <audio id="quokka-audio">
+        <source src="../sonidos/quokka.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="quelea-audio">
+        <source src="../sonidos/quelea.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="equidna-audio">
+        <source src="../sonidos/equidna.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="panda-audio">
+        <source src="../sonidos/panda.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="pecesq-audio">
+        <source src="../sonidos/pecesq.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="pavo-audio">
+        <source src="../sonidos/pavo.mp3" type="audio/mpeg">
+    </audio>
+    
+    <script>
+        let bCount = 0;
+        const countSpan = document.getElementById("count");
+
+        function playSound(letter) {
+            const audioElement = document.getElementById(`${letter}-audio`);
+            audioElement.play();
+            
+
+            if (letter === 'quetzal' || letter === 'quokka' || letter === 'quelea' || letter === 'equidna') {
+                bCount++;
+                countSpan.innerHTML = bCount;
+                if (bCount >=4) {
+                    audioElement.play();
+                    alert("¡CORRECTO! HAS COMPLETADO EL NIVEL 1 DE LA LETRA Q" );
+                    //   alert("Felicidades, has identificado la letra 'b'.");
+                    window.location.href = "./buscaq.html";
+                }
+            } else {
+                // alert("¡Incorrecto! Sigue intentando.");
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
