@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../img/icono-rex.png" type="image/x-icon" />
+    <title>Zoológico de la Letra D</title>
+    <style>
+        .btn-img {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        body {
+            /* background-image: url(../imagenes/fondo1.jpg); */
+            background-color: #abf0d1;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        @media only screen and (max-width: 767px) {
+            body {
+                /* background-image: url(../imagenes/fondo1.jpg); */
+                background-color: #abf0d1;
+            }
+        }
+        .contenedor {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contenedor .contenedor-zoo {
+            position: absolute;
+            margin-left: 2cm;
+            margin-top: 14cm;
+        }
+
+        .contenedor .contenedor-ins {
+            position: absolute;
+            margin-left: 5cm;
+            margin-top: -.5cm;
+        }
+        .contenedor .contenedor-audio {
+            position: absolute;
+            margin-left: 5.7cm;
+            margin-top: 2.7cm;
+            cursor: pointer;
+        }
+
+        #description {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        #letter-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            padding: 20px;
+        }
+
+        .letter {
+            width: 150px;
+            height: 150px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            cursor: pointer;
+            margin: 10px;
+            position: absolute;
+        }
+        .letter-dino {
+            background-image: url("../imagenes/dino.png");
+            top: 40%;
+            left: 25%;
+        } 
+        .letter-delfin1 {
+            height: 25%;
+            background-image: url("../imagenes/delfin.png");
+            top: 55%;
+            left: 70%;
+        }
+
+        .letter-dodo1 {
+            height: 25%;
+            background-image: url("../imagenes/dodo.png");
+            top: 70%;
+            left: 60%;
+        }
+        .letter-dingo1 {
+            height: 25%;
+            background-image: url("../imagenes/dingo.png");
+            top: 60%;
+            left: 40%;
+        }  
+
+        .letter-ballena1 {
+            height: 25%;
+            background-image: url("../imagenes/ballena.png");
+            top: 55%;
+            left: 85%;
+        } 
+
+        .letter-bufalo1 {
+            height: 25%;
+            background-image: url("../imagenes/bufalo.png");
+            top: 40%;
+            left: 50%;
+        }
+        .letter-borrego {
+            height: 25%;
+            background-image: url("../imagenes/borrego.png");
+            top: 60%;
+            left: 10%;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <div class="contenedor-zoo">
+            <img src="../imagenes/zood.png" alt="zoo-b" width="40%">
+        </div>
+        <div class="contenedor-ins">
+            <img src="../imagenes/insD.png" alt="zoo-b" width="80%">
+        </div>
+        <div class="contenedor-audio">
+            <img src="../imagenes/audio.png" alt="audio" width="40%" onclick="playSound('indicaciones')">
+        </div>
+    </div>
+    
+    <div id="letter-container">
+        <a href="../menuEjercicios.html" class="btn-img"><img src="../imagenes/menu.png" width="80"></a>
+        <div class="letter letter-dino" onclick="playSound('dino')"></div>
+        <div class="letter letter-delfin1" onclick="playSound('delfin1')"></div>
+        <div class="letter letter-dodo1" onclick="playSound('dodo1')"></div>
+        <div class="letter letter-dingo1" onclick="playSound('dingo1')"></div>
+
+        <div class="letter letter-ballena1" onclick="playSound('ballena1')"></div>
+        <div class="letter letter-bufalo1" onclick="playSound('bufalo1')"></div>
+        <div class="letter letter-borrego" onclick="playSound('borrego')"></div>
+        
+    </div>
+    <div id="b-count"><span id="count"></span></div>
+
+    <audio id="indicaciones-audio">
+        <source src="../sonidos/encuentrad.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="dino-audio">
+        <source src="../sonidos/dino.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="delfin1-audio">
+        <source src="../sonidos/delfin1.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="dodo1-audio">
+        <source src="../sonidos/dodo1.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="dingo1-audio">
+        <source src="../sonidos/dingo1.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="ballena1-audio">
+        <source src="../sonidos/ballena1.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="bufalo1-audio">
+        <source src="../sonidos/bufalo1.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="borrego-audio">
+        <source src="../sonidos/borrego.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        let bCount = 0;
+        const countSpan = document.getElementById("count");
+
+        function playSound(letter) {
+            const audioElement = document.getElementById(`${letter}-audio`);
+            audioElement.play();
+
+            if (letter === 'dino' || letter === 'delfin1' || letter === 'dodo1' || letter === 'dingo1') {
+                bCount++;
+                countSpan.innerHTML = bCount;
+
+                if (bCount >= 4) {
+                    alert("¡CORRECTO! HAS COMPLETADO EL NIVEL 1 DE LA LETRA D" );
+                    //   alert("Felicidades, has identificado la letra 'd'.");
+                    window.location.href = "./buscad.html";
+                }
+            } else {
+                // alert("¡Incorrecto! Sigue intentando.");
+            }
+        }
+    </script>
+
+</body>
+
+</html>
