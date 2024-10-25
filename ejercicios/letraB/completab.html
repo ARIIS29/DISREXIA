@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Completa con la letra B</title>
+  <link rel="shortcut icon" href="../../img/icono-rex.png" type="image/x-icon"/>
+  <style>
+    #myButton {
+      width: 100px;
+      height: 100px;
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 1;
+    }
+
+
+    button {
+      background-color: #008CBA;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #repetir {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 10px;
+    }
+
+    body {
+      /* background-image: url(../imagenes/fondo3.jpg); */
+      background-color: #abf0d1;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    @media only screen and (max-width: 767px) {
+      body {
+        /* background-image: url(../imagenes/fondo3.jpg); */
+        background-color: #abf0d1;
+      }
+    }
+
+    .contenedor {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contenedor .contenedor-ins {
+      position: absolute;
+      margin-left: 25%;
+      margin-top: -.5%;
+    }
+
+    .contenedor .contenedor-audio {
+      position: absolute;
+      margin-left: 5.7cm;
+      margin-top: 2.7cm;
+      cursor: pointer;
+    }
+
+    .contenedor .contenedor-img {
+      text-align: center;
+      margin-top: 6%;
+    }
+
+    #audio-btn {
+      margin-left: 27%;
+      margin-top: 6%;
+			cursor: pointer;
+      z-index: 2;
+		} 
+
+    #word {
+      font-size: 3em;
+      /* margin-top: 30px; */
+      left: 25%;
+      color: rgb(13, 4, 93);
+
+    }
+
+    #answer {
+      margin-top: 20px;
+      padding: 10px;
+    }
+
+    #submit {
+      margin-top: 10px;
+      padding: 10px 20px;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: white;
+    }
+
+    #new-word {
+      margin-top: 20px;
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <audio id="sonido-inicio" src="../sonidos/escribeb.mp3"></audio>
+  <div class="contenedor">
+    <div class="contenedor-ins">
+      <img src="../imagenes/insCompletaB.png" alt="zoo-b" width="70%">
+    </div>
+    <div id="audio-btn" onclick="reproducirSonidoInicio()"><img src="../imagenes/audio.png" alt="audio" width="5%"></div>
+    <div class="contenedor-img">
+      <img id="image" src="" width="15%">
+      <audio id="audio"></audio>
+      <div id="word"></div>
+      <audio autoplay>
+        <source src="../sonidos/escribeb.mp3" type="audio/mpeg">
+      </audio>
+      <input type="text" id="answer" placeholder="Escribe la palabra">
+      <button id="submit" onclick="checkAnswer()">Comprobar</button>
+      <div id="result"></div>
+      <button id="new-word" onclick="newWord()">siguiente palabra</button>
+      <br>
+      <a href="../menuEjercicios.html"><img src="../imagenes/menu.png" id="myButton"></a>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- <button id="repetir" onclick="reproducirSonidoInicio()">Repetir instruccion</button> -->
+
+
+  <script>
+    function reproducirSonidoInicio() {
+      const sonidoInicio = document.getElementById("sonido-inicio");
+      sonidoInicio.currentTime = 0;
+      sonidoInicio.play();
+    }
+
+    window.onload = function () {
+      const sonidoInicio = document.getElementById("sonido-inicio");
+      sonidoInicio.currentTime = 0;
+      sonidoInicio.play();
+    }
+    // Array de palabras con su imagen y sonido correspondientes
+    const words = [
+      { word: 'barco', image: '../imagenes/barco.png', audio: '../sonidos/barco.mp3' },
+      { word: 'biblioteca', image: '../imagenes/biblioteca.png', audio: '../sonidos/biblioteca.mp3' },
+      { word: 'abeja', image: '../imagenes/abeja.png', audio: '../sonidos/abeja.mp3' },
+      { word: 'bombilla', image: '../imagenes/bombilla.png', audio: '../sonidos/bombilla.mp3' },
+      { word: 'buho', image: '../imagenes/buho.png', audio: '../sonidos/buho.mp3' },
+      { word: 'botella', image: '../imagenes/botella.png', audio: '../sonidos/botella.mp3' },
+    ];
+
+    // Seleccionar una palabra al azar
+    let currentWord = words[Math.floor(Math.random() * words.length)];
+
+    // Mostrar la palabra con letras faltantes
+    let hiddenWord = currentWord.word.replace(/[b]/g, '_');
+    document.getElementById('word').textContent = hiddenWord;
+
+    // Actualizar imagen y sonido
+    document.getElementById('image').src = currentWord.image;
+    document.getElementById('audio').src = currentWord.audio;
+
+    // Contador de respuestas correctas
+    let correctAnswers = 0;
+
+    // Función para comprobar la respuesta del usuario
+    function checkAnswer() {
+      let answer = document.getElementById('answer').value.toLowerCase();
+      if (answer === currentWord.word) {
+        document.getElementById('result').textContent = '¡Correcto!';
+        correctAnswers++;
+        // alert("¡Correcto!");
+        if (correctAnswers === 3) {
+          // Avanzar a la siguiente página
+          alert("¡CORRECTO! HAS COMPLETADO EL NIVEL 3 DE LA LETRA B" );
+          window.location.href = '../menuEjercicios.html';
+        } else {
+          // Avanzar a la siguiente palabra
+          currentWord = words[Math.floor(Math.random() * words.length)];
+          hiddenWord = currentWord.word.replace(/[b]/g, '_');
+          document.getElementById('word').textContent = hiddenWord;
+          document.getElementById('answer').value = '';
+          document.getElementById('result').textContent = '';
+
+          // Actualizar imagen y sonido
+          document.getElementById('image').src = currentWord.image;
+          document.getElementById('audio').src = currentWord.audio;
+        }
+      } else {
+        alert("Incorrecto, intenta de nuevo");
+      }
+    }
+
+    // Función para seleccionar una nueva palabra al azar
+    function newWord() {
+      currentWord = words[Math.floor(Math.random() * words.length)];
+      hiddenWord = currentWord.word.replace(/[b]/g, '_');
+      document.getElementById('word').textContent = hiddenWord;
+      document.getElementById('answer').value = '';
+      document.getElementById('result').textContent = '';
+
+      // Actualizar imagen y sonido
+      document.getElementById('image').src = currentWord.image;
+      document.getElementById('audio').src = currentWord.audio;
+    }
+
+    // Función para reproducir el audio
+    function playAudio() {
+      document.getElementById('audio').play();
+    }
+
+    // Agregar evento click a la imagen
+    document.getElementById('image').addEventListener('click', playAudio);
+  </script>
+</body>
+
+</html>

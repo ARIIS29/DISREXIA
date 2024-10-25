@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../img/icono-rex.png" type="image/x-icon" />
+    <title>Zoológico de la Letra B</title>
+    <style>
+        .btn-img {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        body {
+            /* background-image: url(../imagenes/fondo1.jpg); */
+            background-color: #abf0d1;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        @media only screen and (max-width: 767px) {
+            body {
+                /* background-image: url(../imagenes/fondo1.jpg); */
+                background-color: #abf0d1;
+            }
+        }
+
+        .contenedor {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contenedor .contenedor-zoo {
+            position: absolute;
+            margin-left: 2cm;
+            margin-top: 14cm;
+        }
+
+        .contenedor .contenedor-ins {
+            position: absolute;
+            margin-left: 5cm;
+            margin-top: -.5cm;
+        }
+        .contenedor .contenedor-audio {
+            position: absolute;
+            margin-left: 5.7cm;
+            margin-top: 2.7cm;
+            cursor: pointer;
+        }
+
+
+        #description {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        #letter-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            padding: 20px;
+        }
+
+        .letter {
+            width: 150px;
+            height: 80px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            cursor: pointer;
+            margin: 10px;
+            position: absolute;
+        }
+
+        .letter-buho {
+            height: 22%;
+            background-image: url("../imagenes/buho.png");
+            top: 16%;
+            left: 86.5%;
+        }
+
+        .letter-bufalo {
+            height: 25%;
+            background-image: url("../imagenes/bufalo.png");
+            top: 70%;
+            left: 60%;
+        }
+
+        .letter-ballena {
+            height: 25%;
+            background-image: url("../imagenes/ballena.png");
+            top: 55%;
+            left: 70%;
+        }
+
+        .letter-b {
+            height: 25%;
+            background-image: url("../imagenes/burro.png");
+            top: 40%;
+            left: 25%;
+        } 
+
+        .letter-delfin {
+            height: 20%;
+            background-image: url("../imagenes/delfin.png");
+            top: 60%;
+            left: 85%;
+        } 
+
+        .letter-dodo {
+            height: 25%;
+            background-image: url("../imagenes/dodo.png");
+            top: 60%;
+            left: 40%;
+        }
+
+        .letter-dingo {
+            height: 25%;
+            background-image: url("../imagenes/dingo.png");
+            top: 40%;
+            left: 50%;
+        }  
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <div class="contenedor-zoo">
+            <img src="../imagenes/zoob.png" alt="zoo-b" width="40%">
+        </div>
+        <div class="contenedor-ins">
+            <img src="../imagenes/insB.png" alt="zoo-b" width="80%">
+        </div>
+        <div class="contenedor-audio">
+            <img src="../imagenes/audio.png" alt="audio" width="40%" onclick="playSound('indicaciones')">
+        </div>
+    </div>
+   
+    <div id="letter-container">
+        <a href="../menuEjercicios.html" class="btn-img"><img src="../imagenes/menu.png" width="80"></a>
+        <div class="letter letter-buho" onclick="playSound('buho')"></div>
+        <div class="letter letter-bufalo" onclick="playSound('bufalo')"></div>
+        <div class="letter letter-ballena" onclick="playSound('ballena')"></div>
+        
+        <div class="letter letter-b" onclick="playSound('b')"></div>
+        <div class="letter letter-delfin" onclick="playSound('delfin')"></div>
+        <div class="letter letter-dodo" onclick="playSound('dodo')"></div>
+        <div class="letter letter-dingo" onclick="playSound('dingo')"></div>
+    </div>
+    <div id="b-count"><span id="count"></span></div> 
+
+
+    <audio id="indicaciones-audio">
+        <source src="../sonidos/encuentrab.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="buho-audio">
+        <source src="../sonidos/buho.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="bufalo-audio">
+        <source src="../sonidos/bufalo.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="ballena-audio">
+        <source src="../sonidos/ballena.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="b-audio">
+        <source src="../sonidos/burro.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="delfin-audio">
+        <source src="../sonidos/delfin.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="dodo-audio">
+        <source src="../sonidos/dodo.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="dingo-audio">
+        <source src="../sonidos/dingo.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        let bCount = 0;
+        const countSpan = document.getElementById("count");
+
+        function playSound(letter) {
+            const audioElement = document.getElementById(`${letter}-audio`);
+            audioElement.play();
+            
+
+            if (letter === 'b' || letter === 'buho' || letter === 'bufalo' || letter === 'ballena') {
+                bCount++;
+                countSpan.innerHTML = bCount;
+                if (bCount >=4) {
+                    audioElement.play();
+                    alert("¡CORRECTO! HAS COMPLETADO EL NIVEL 1 DE LA LETRA B" );
+                    //   alert("Felicidades, has identificado la letra 'b'.");
+                    window.location.href = "./buscab.html";
+                }
+            } else {
+                // alert("¡Incorrecto! Sigue intentando.");
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
