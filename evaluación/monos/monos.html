@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monos</title>
+    <link rel="stylesheet" href="../../css/estilo-monos.css" />
+    <link rel="shortcut icon" href="../../img/icono-rex.png" type="image/x-icon" />
+  </head>
+  <body>
+
+    
+    <header>
+      <div class="contenedor-logo">
+        <a class="logo" href="../../index.html">
+          <img src="../../img/disrexia.png" alt="" />
+        </a>
+      </div>
+      <div class="titu">
+        <a href="../evaluacion.html"><img src="../../img/titu-evaluacion.png" alt=""/></a>
+      </div>
+      <nav>
+        <div class="boton-lecciones">
+          <a href="../../lecciones/menuLecciones.html">
+            <img class="lecciones" src="../../img/btn-lecciones.png" alt="" />
+          </a>
+        </div>
+        <div class="boton-ejercicios">
+          <a href="../../ejercicios/menuEjercicios.html">
+            <img class="ejercicios" src="../../img/btn-ejercicio.png" alt="" />
+          </a>
+        </div>
+      </nav>
+    </header>
+    
+    <section>
+      <div class="contenedor1">
+
+        <p id="mensajeFinal"></p>
+        
+        <div id="botones" class="botones">
+          <a id="boton-mono" class="boton-mono" href="../pinguinos/pinguinos.html"><img src="../../img/logo-pinuino.png" width="20%" alt=""></a>
+          <a id="boton-leon" class="boton-leon" href="../leones/leones.html"><img src="../../img/logo-leones.png" width="20%" alt=""></a>
+        </div>
+
+        <div id="juego" class="contenedor">
+
+          <p><b>El mono quiere comer su platano ayudalo a saber en que dirección se encuentra</b></p>
+  
+          <div id="frutas" class="frutas">
+            <img id="banana" class="banana" src="../../img/banana.png" alt="" onclick="reproducirSonidoIzquierda()">
+            <audio id="sonido-izquierda" src="../../audios/izquierda.mp3"></audio>
+            <img id="mani" class="mani" src="../../img/mani.png" alt="" onclick="reproducirSonidoIzquierda()">
+            <audio id="sonido-izquierda" src="../../audios/izquierda.mp3"></audio>
+            <img id="pina" class="pina" src="../../img/piña.png" alt="" onclick="reproducirSonidoIzquierda()">
+            <img id="banana2" class="banana2" src="../../img/banana.png" alt="" onclick="reproducirSonidoIzquierda()">
+            
+           
+          </div>
+  
+          <div class="mono">
+            <img src="../../img/mono.png" alt="">
+          </div>
+  
+          <div class="botones">
+            <button id="izquierda">Izquierda</button>
+            <button id="derecha">Derecha</button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="marcador">
+        <img src="../../img/puntaje.png" alt="">
+        <p id="mensaje"></p>
+        <p id="puntaje"></p>
+      </div>
+    </section>
+
+    <script src="../../js/evaluacion/monos.js"></script>
+
+  </body>
+</html>

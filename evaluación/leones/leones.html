@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leones</title>
+    <link rel="stylesheet" href="../../css/estilo-leones.css" />
+    <link rel="shortcut icon" href="../../img/icono-rex.png" type="image/x-icon" />
+  </head>
+  <body>
+
+    <header>
+      <div class="contenedor-logo">
+        <a class="logo" href="../../index.html">
+          <img src="../../img/disrexia.png" alt="" />
+        </a>
+      </div>
+      <div class="titu">
+        <a href="../evaluacion.html"><img src="../../img/titu-evaluacion.png" alt=""/></a>
+      </div>
+      <nav>
+        <div class="boton-lecciones">
+          <a href="../../lecciones/menuLecciones.html">
+            <img class="lecciones" src="../../img/btn-lecciones.png" alt="" />
+          </a>
+        </div>
+        <div class="boton-ejercicios">
+          <a href="../../ejercicios/menuEjercicios.html">
+            <img class="ejercicios" src="../../img/btn-ejercicio.png" alt="" />
+          </a>
+        </div>
+        <!-- <div class="boton-evaluacion">
+          <a href="../evaluación/evaluacion.html" class="btnq"
+            ><img src="../../img/boton-evaluacion.png" alt="Evaluación"/>
+          </a>
+        </div> -->
+      </nav>
+    </header>
+    
+    <section>
+      <div class="contenedor1">
+        <div id="mensajeFinal"><p></p></div>
+        
+        <div id="botones" class="botones">
+          <a id="boton-mono" class="boton-mono" href="../pinguinos/pinguinos.html"><img src="../../img/logo-pinuino.png" width="20%" alt=""></a>
+        </div>
+
+        <div id="botones2" class="botones">
+          <a id="boton-mono" class="boton-mono" href="../pinguinos/pinguinos.html"><img src="../../img/logo-pinuino.png" width="20%" alt=""></a>
+          <a id="boton-ejercicio" class="boton-ejercicio" href="../../ejercicios/menuEjercicios.html">
+            <img class="ejercicios" src="../../img/btn-ejercicio.png" width="20%" alt="" />
+          </a>
+        </div>
+
+        <div id="juego" class="contenedor">
+          <div class="sopa1">
+              <div class="b" onclick="cambiar_fondo_b(this)"><p>b</p></div>
+              <div class="q" onclick="cambiar_fondo_q(this)"><p>q</p></div>
+              <div class="p" onclick="cambiar_fondo_p(this)"><p>p</p></div>
+              <div class="q" onclick="cambiar_fondo_q(this)"><p>q</p></div>
+              <div class="d" onclick="cambiar_fondo_d(this)"><p>d</p></div>
+          </div>
+          <div class="sopa2">
+              <div class="p" onclick="cambiar_fondo_p(this)"><p>p</p></div>
+              <div class="b" onclick="cambiar_fondo_b(this)"><p>b</p></div>
+              <div class="q" onclick="cambiar_fondo_q(this)"><p>q</p></div>
+              <div class="d" onclick="cambiar_fondo_d(this)"><p>d</p></div>
+              <div class="p" onclick="cambiar_fondo_p(this)"><p>p</p></div>
+          </div>
+          <div class="sopa3">
+              <div class="b" onclick="cambiar_fondo_b(this)"><p>b</p></div>
+              <div class="d" onclick="cambiar_fondo_d(this)"><p>d</p></div>
+              <div class="p" onclick="cambiar_fondo_p(this)"><p>p</p></div>
+              <div class="q" onclick="cambiar_fondo_q(this)"><p>q</p></div>
+              <div class="b" onclick="cambiar_fondo_b(this)"><p>b</p></div>
+          </div>
+          <div class="sopa4">
+              <div class="d" onclick="cambiar_fondo_d(this)"><p>d</p></div>
+              <div class="p" onclick="cambiar_fondo_p(this)"><p>p</p></div>
+              <div class="b" onclick="cambiar_fondo_b(this)"><p>b</p></div>
+              <div class="d" onclick="cambiar_fondo_d(this)"><p>d</p></div>
+              <div class="b" onclick="cambiar_fondo_b(this)"><p>b</p></div>
+          </div>
+  
+          <div class="letras">
+              <div class="letras1">
+                  <div class="letra-b">
+                      <p>Cuantas <b style="color: red;">b</b> hay:</p>
+                      <input type="number" id="answerb" placeholder="0" min="0" max="9">
+                  </div>
+                  <div class="letra-d">
+                    <p>Cuantas <b style="color: red;">d</b> hay:</p>
+                      <input type="number" id="answerd" placeholder="0">
+                  </div>
+              </div>
+              <div class="letras2">
+                  <div class="letra-p">
+                    <p>Cuantas <b style="color: red;">p</b> hay:</p> 
+                      <input type="number" id="answerp" placeholder="0">
+                  </div>
+                  <div class="letra-q">
+                    <p>Cuantas <b style="color: red;">q</b> hay:</p>
+                    <input type="number" id="answerq" placeholder="0">
+                  </div>
+              </div>
+              <div class="verificar">
+                  <button id="submit" onclick="checkAnswer()">Comprobar</button>
+                  <div id="result"></div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="marcador">
+        <div class="puntaje">
+          <img src="../../img/puntaje-leon.png" alt="">
+        </div>
+        <br>
+        <!-- <div class="b-puntaje"><p>b</p></div>
+        <div class="d-puntaje"><p>d</p></div>
+        <div class="p-puntaje"><p>p</p></div>
+        <div class="q-puntaje"><p>q</p></div> -->
+        <b><p id="puntajeb"></p></b>
+        <b><p id="puntajed"></p></b>
+        <b><p id="puntajep"></p></b>
+        <b><p id="puntajeq"></p></b>
+      </div>
+    </section>
+
+    <script src="../../js/evaluacion/leones.js"></script>
+
+  </body>
+</html>

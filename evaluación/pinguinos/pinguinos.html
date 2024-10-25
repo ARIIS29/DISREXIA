@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pinguinos</title>
+    <link rel="stylesheet" href="../../css/estilo-pinguinos.css" />
+    <link rel="shortcut icon" href="../../img/icono-rex.png" type="image/x-icon" />
+  </head>
+  <body>
+    <header>
+      <div class="contenedor-logo">
+        <a class="logo" href="../../index.html">
+          <img src="../../img/disrexia.png" alt="" />
+        </a>
+      </div>
+      <div class="titu">
+        <a href="../evaluacion.html"><img src="../../img/titu-evaluacion.png" alt=""/></a>
+      </div>
+      <nav>
+        <div class="boton-lecciones">
+          <a href="../../lecciones/menuLecciones.html">
+            <img class="lecciones" src="../../img/btn-lecciones.png" alt="" />
+          </a>
+        </div>
+        <div class="boton-ejercicios">
+          <a href="../../ejercicios/menuEjercicios.html">
+            <img class="ejercicios" src="../../img/btn-ejercicio.png" alt="" />
+          </a>
+        </div>
+      </nav>
+    </header>
+    
+    <section>
+      <div class="contenedor1">
+        <p id="mensajeFinal"></p>
+        <p id="mensajeFinal"></p>
+        <div id="botones" class="botones">
+          <a id="boton-mono" class="boton-mono" href="../monos/monos.html"><img src="../../img/logo-monos.png" width="20%" alt=""></a>
+          <a id="boton-leon" class="boton-leon" href="../leones/leones.html"><img src="../../img/logo-leones.png" width="20%" alt=""></a>
+        </div>
+
+        <div id="juego" class="contenedor">
+          <p id="instrucciones"><b>Busca la palabra escrita correctamente</b></p>
+
+          <img id="objeto" class="objeto">
+
+          <div id="opciones">
+              <div class="opcion" onclick="verificarRespuesta(this)"></div>
+              <div class="opcion" onclick="verificarRespuesta(this)"></div>
+              <div class="opcion" onclick="verificarRespuesta(this)"></div>
+              <div class="opcion" onclick="verificarRespuesta(this)"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="marcador">
+        <img src="../../img/puntaje-nieve.png" alt="">
+        <br>
+        <p id="mensaje"></p>
+        <p id="puntaje"></p>
+      </div>
+    </section>
+
+    <script src="../../js/evaluacion/pinguinos.js"></script>
+
+  </body>
+</html>
